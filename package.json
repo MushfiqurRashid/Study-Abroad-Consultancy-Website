@@ -1,0 +1,17 @@
+{
+  "name": "study-abroad-consultancy",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "setup": "npm --prefix apps/api install && npm --prefix apps/web install",
+    "dev": "concurrently -n web,api -c cyan,magenta \"npm --prefix apps/web run dev\" \"npm --prefix apps/api run start:dev\"",
+    "build": "npm --prefix apps/api run build && npm --prefix apps/web run build",
+    "start": "docker compose up -d --build",
+    "stop": "docker compose down",
+    "logs": "docker compose logs -f",
+    "seed": "npm --prefix apps/api run seed"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

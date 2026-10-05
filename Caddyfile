@@ -1,0 +1,11 @@
+{$DOMAIN:studyabroadconsultancybd.com}, www.{$DOMAIN:studyabroadconsultancybd.com} {
+  encode zstd gzip
+
+  handle /api/* {
+    reverse_proxy api:8000
+  }
+
+  handle {
+    reverse_proxy web:3000
+  }
+}
